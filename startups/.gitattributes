@@ -1,1 +1,0 @@
-objects.csv filter=lfs diff=lfs merge=lfs -tex
