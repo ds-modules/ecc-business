@@ -1,7 +1,7 @@
 name: Notify textbook repo of update
 on:
   push:
-    branches: [main]      # or whatever your default branch is
+    branches: [main]
 
 jobs:
   dispatch:
@@ -10,7 +10,7 @@ jobs:
       - name: Trigger sync in ecc-textbook.notebooks
         env:
           TOKEN:   ${{ secrets.ECC_TEXTBOOK_PAT }}
-          REPO:    ${{ github.repository }}           # e.g. ds-modules/ecc-biology
+          REPO:    ${{ github.repository }}
         run: |
           # Extract folder name (ecc-biology → ecc-biology)
           FOLDER_NAME="${REPO##*/}"
