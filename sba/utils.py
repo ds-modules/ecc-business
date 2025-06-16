@@ -5,7 +5,10 @@ import plotly.express as px
 import ipywidgets as widgets
 from IPython.display import display, clear_output
 
-sba = pd.read_csv('SBAnational.csv', low_memory=False)
+# Load the SBA dataset via partitioned CSV files
+sba = [pd.read_csv(f"sba_{i}.csv", low_memory=False) for i in range(5)]
+sba = pd.concat(sba, ignore_index=True)
+
 
 def initial_inspection():
     output = widgets.Output()
